@@ -35,7 +35,7 @@ gem 'material_design_lite-rails'
 gem 'material_icons'
 
 gem 'cloudinary'
-gem 'attachinary'
+gem 'attachinary', github: 'assembler/attachinary'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
