@@ -1,0 +1,11 @@
+<%= form_for(note) do |f| %>
+
+  <div class="field">
+    <%= f.label :note %>
+    <%= f.text_area :note, style: "width: 40%;height:200px;margin-top:20px;" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Enregistrer', style: "width:200px;height:40px;margin-top:20px;font-size:20px;" %>
+  </div>
+<% end %>

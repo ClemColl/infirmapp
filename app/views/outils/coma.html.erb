@@ -1,0 +1,239 @@
+<% @first = {link: outils_path, show: true} %>
+<% @second = "Diagramme coma" %>
+<% @third = {show: false} %>
+
+<style>
+.div {
+	margin:20px;
+	border:solid 1px black;
+	color:rgb(255,64,129);
+}
+</style>
+
+<div id="firstChoice" class="div" title="state1" onclick="changeAction1()">DETRESSE circulatoire et/ou respiratoire</div>
+
+<div id="secondChoice" class="div" onclick="changeAction2()">ABSENCE DE DETRESSE circulatoire ou respiratoire</div>
+<div id="thirdChoice" class="div" hidden="true" onclick="changeAction3()"></div>
+<div id="fourthChoice" class="div" hidden="true"></div>
+<div id="fifthChoice" class="div" hidden="true"></div>
+
+<script>
+var v = document.getElementById("firstChoice");
+var w = document.getElementById("secondChoice");
+var x = document.getElementById("thirdChoice");
+var y = document.getElementById("fourthChoice");
+var z = document.getElementById("fifthChoice");
+
+
+function changeAction1() {
+
+if (v.title == "state1") {
+	v.title = "end";
+	v.textContent = "REANIMATION";
+	v.style.border = "none";
+
+	w.hidden = true;
+}
+	else if (v.title == "state2") {
+		v.title = "state3";
+		v.textContent = "test glycémie digitale ?";
+		w.hidden = true;
+	}
+		else if (v.title == "state3") {
+			v.title = "state4";
+			v.textContent = "Glycémie anormale";
+
+			w.hidden = false;
+			w.textContent = "Glycémie normale";
+		}
+			else if (v.title == "state4") {
+				v.title = "state5";
+				v.textContent = "HYPOglycémie";
+
+				w.textContent = "HYPERglycémie";
+			}
+				else if (v.title == "state5") {
+					v.title = "end";
+					v.textContent = "50ml G30% Glucagon IM ou IV";
+					v.style.border = "none";
+
+					w.hidden = true;
+				}
+					else if (v.title == "state6") {
+						v.title = "state7";
+						v.textContent = "TTT de l'Hypertension Crânienne";
+
+						w.hidden = true;
+
+						x.hidden = true;
+
+						y.hidden = true;
+					}
+						else if (v.title == "state7") {
+							v.title = "end";
+							v.textContent = "Mannitol + Corticoïdes";
+							v.style.border = "none";
+
+							w.textContent = "SCANNER CEREBRAL Tomo-Densito-Métrie-Cérébrale";
+							w.style.border = "none";
+							w.hidden = false;
+						}
+							else if (v.title == "state8") {
+								v.title = "state9";
+								v.textContent = "T° anormale";
+
+								w.textContent = "T° normale";
+								w.hidden = false;
+							}
+								else if (v.title == "state9") {
+									v.title = "state10";
+									v.textContent = "HYPOthermie";
+
+									w.textContent = "HYPERthermie";
+								}
+									else if (v.title == "state10") {
+										v.title = "end";
+										v.textContent = "Coma métabolique";
+										v.style.border = "none";
+
+										w.textContent = "Coma toxique";
+										w.style.border = "none";
+
+										x.textContent = "Coma endocrinien (hypothyroïdie)";
+										x.style.border = "none";
+										x.hidden = false;
+
+										y.textContent = "Coma prolongé";
+										y.style.border = "none";
+										y.hidden = false;
+									}
+										else if (v.title == "state11") {
+											v.title = "end";
+											v.textContent = "SCANNER CEREBRAL + Produit de contraste Tomo-Densito-Métrie-Cérébrale + IV";
+											v.style.border = "none";
+
+											w.hidden = true;
+
+											x.hidden = true;
+
+											y.hidden = true;
+
+											z.hidden = true;
+										}
+											else if (v.title == "state12") {
+												v.title = "state13";
+												v.textContent = "Coma toxique";
+
+												w.textContent = "Coma éthylique";
+												w.hidden = false;
+
+												x.textContent = "Coma hépatique, Insuffisance Hépato-Cellulaire";
+												x.hidden = false;
+											}
+												else if (v.title == "state13") {
+													v.title = "end";
+													v.textContent = "Prise de Neuroleptiques ?";
+													v.style.border = "none";
+
+													w.hidden = true;
+
+													x.hidden = true;
+												}
+}
+
+function changeAction2() {
+
+if (v.title == "state1") {
+	v.title = "state2";
+	v.textContent = "COMA isolé";
+	w.textContent = "Exame Neurologique ANORMAL";
+	}
+	else if (v.title == "state2") {
+		v.title = "state6";
+		v.textContent = "Signes axiaux";
+
+		w.textContent = "Signes focaux";
+
+		x.textContent = "Syndrome méningé";
+		x.style.border = "none";
+		x.hidden = false;
+
+		y.textContent = "Epilepsie";
+		y.style.border = "none";
+		y.hidden = false;
+	} 
+		else if (v.title == "state4") {
+			v.title = "state8";
+			v.textContent = "prise de T° ?";
+
+			w.hidden = true;
+		} 
+			else if (v.title == "state5") {
+				v.title = "end";
+				v.textContent = "diabétique ?";
+				v.style.border = "none";
+
+				w.textContent = "FAIRE HOSPITALISER";
+				w.style.border = "none";
+			}
+				else if (v.title == "state6") {
+					v.title = "end";
+					v.textContent = "SCANNER CEREBRAL Tomo-Densito-Métrie-Cérébrale";
+					v.style.border = "none";
+
+					w.hidden = true;
+
+					x.hidden = true;
+
+					y.hidden = true;
+				}
+					else if (v.title == "state9") {
+						v.title = "state12";
+						v.textContent = "Haleine ?";
+
+						w.hidden = true;
+					}
+						else if (v.title == "state10") {
+							v.title = "state11";
+							v.textContent = "SEPSIS";
+
+							w.textContent = "Coup de chaleur";
+							w.style.border = "none";
+
+							x.textContent = "Syndrome Malin des Neuroleptiques";
+							x.style.border = "none";
+							x.hidden = false;
+
+							y.textContent = "Hyperthermie Maligne";
+							y.style.border = "none";
+							y.hidden = false;
+
+							z.textContent = "Hémorragie méningée";
+							z.style.border = "none";
+							z.hidden = false;
+						}
+							else if (v.title == "state13") {
+								v.title = "end";
+								v.textContent = "Vérifier taux d'alcoolémie";
+								v.style.border = "none";
+
+								w.hidden = true;
+
+								x.hidden = true;
+							}
+
+}
+
+function changeAction3() {
+
+	if (v.title == "state13") {
+		v.title = "end";
+		v.textContent = "Haleine de fruit pourri";
+		v.style.border = "none";
+
+		w.hidden = true;
+
+		x.hidden = true;
+	}
+}
+</script>

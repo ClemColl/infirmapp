@@ -1,0 +1,27 @@
+<% @first = {link: "/patients/#{params[:patient_id]}", show: true} %>
+<% @second = "Visites" %>
+<% @third = {show: false} %>
+
+    <% @visites.where(:patient_id => params[:patient_id]).each do |visite| %>
+    
+    <div style="margin:auto;width:30%;border-bottom:solid 1px;">
+      <h4>Visite <%= visite.date %></h4>
+      
+      <p>
+        <strong>Stade: </strong>
+          <%= visite.stade %><br>
+            COMMENTAIRES
+      </p>
+
+      <p>
+        <%= visite.longeur %>
+        <%= visite.largeur %>
+        <%= visite.profondeur %>
+        <%#= visite.echelle %>
+          <% visite.images.each do |photo| %>
+            <div style=""><%= cl_image_tag photo.path %></div>
+          <% end %>
+      </p>
+    </div>
+    
+    <% end %>

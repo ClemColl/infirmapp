@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  stade: MyString
+  longeur: MyString
+  largeur: MyString
+  profondeur: MyString
+  echelle: MyString
+  patient: one
+
+two:
+  date: MyString
+  stade: MyString
+  longeur: MyString
+  largeur: MyString
+  profondeur: MyString
+  echelle: MyString
+  patient: two

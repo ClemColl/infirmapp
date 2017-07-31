@@ -1,0 +1,5 @@
+<% @first = {link: "/patients/#{@patient.id}", show: true} %>
+<% @second = "Modifier patient" %>
+<% @third = {show: false} %>
+
+<%= render 'form', patient: @patient %>

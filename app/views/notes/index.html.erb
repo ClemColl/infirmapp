@@ -1,0 +1,14 @@
+<% @first = {show: false} %>
+<% @second = 'Mes Notes' %>
+<% @third = {link: '/notes/new', title: '<i class="material-icons md-36">add</i>', show: true} %>
+
+  <% @notes.each do |note| %>
+    <div style="margin-left:auto;margin-right:auto;">
+    	<div style="width:60%;margin:auto;display:inline-block;line-height:30px;">
+    		<%= truncate(note.note, :length => 50) %>
+    	</div>
+      		<%= link_to note, method: :delete, data: { confirm: 'Êtes vous sûr?' } do %>
+      		<i class="material-icons md-24">delete_forever</i>
+      		<% end %>
+      </div>
+  <% end %>

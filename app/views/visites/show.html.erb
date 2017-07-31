@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @visite.date %>
+</p>
+
+<p>
+  <strong>Stade:</strong>
+  <%= @visite.stade %>
+</p>
+
+<p>
+  <strong>Longeur:</strong>
+  <%= @visite.longeur %>
+</p>
+
+<p>
+  <strong>Largeur:</strong>
+  <%= @visite.largeur %>
+</p>
+
+<p>
+  <strong>Profondeur:</strong>
+  <%= @visite.profondeur %>
+</p>
+
+<p>
+  <strong>Echelle:</strong>
+  <%= @visite.echelle %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @visite.patient %>
+</p>
+
+<%= link_to 'Edit', edit_visite_path(@visite) %> |
+<%= link_to 'Back', visites_path %>

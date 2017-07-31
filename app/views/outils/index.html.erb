@@ -1,0 +1,12 @@
+<% @first = {show: false} %>
+<% @second = "Mes Outils" %>
+<% @third = {show: false} %>
+
+<div>
+	<div class="dive">Night mode</div>
+	<div class="dive">Envoyer une visite</div>
+	<div class="dive"><%= link_to "Calculatrice", outils_calculatrice_path, style: 'text-decoration:none;' %></div>
+	<div class="dive"><%= link_to "Compte goutte", outils_compte_goutte_path, style: 'text-decoration:none;' %></div>
+	<div class="dive">Pansements</div>
+	<div class="dive"><%= link_to "Diagrame coma", outils_coma_path, style: 'text-decoration:none;' %></div>
+</div>

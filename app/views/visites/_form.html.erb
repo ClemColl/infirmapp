@@ -1,0 +1,47 @@
+<%= form_for [@patient, @visite] do |f| %>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.text_field :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stade %>
+    <%= f.text_field :stade %>
+  </div>
+
+  <div class="field">
+    <%= f.label :longeur %>
+    <%= f.text_field :longeur %>
+  </div>
+
+  <div class="field">
+    <%= f.label :largeur %>
+    <%= f.text_field :largeur %>
+  </div>
+
+  <div class="field">
+    <%= f.label :profondeur %>
+    <%= f.text_field :profondeur %>
+  </div>
+
+  <div class="field">
+    <%= f.label :echelle %>
+    <%= f.text_field :echelle %>
+  </div>
+
+  <div>
+    <%= f.label :images %>
+    <%= f.attachinary_file_field :images, multiple: true %>
+  </div>
+
+  <div class="field" hidden="true">
+    <%= f.label :patient_id %>
+    <%= f.text_field :patient_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

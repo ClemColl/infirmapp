@@ -1,0 +1,52 @@
+<% @first = {link: outils_path, show: true} %>
+<% @second = "Calculatrice" %>
+<% @third = {show: false} %>
+
+<div>
+	<input value="" id="firstInput" style="padding:20px;">
+</div>
+
+<div>
+	<input value="" id="secondInput" style="padding:20px;">
+</div>
+
+<button onclick="calcAdd()">+</button>
+<button onclick="calcLess()">-</button>
+<button onclick="calcX()">x</button>
+<button onclick="calcDiv()">/</button>
+
+<h2 id="result"></h2>
+
+<script>
+function calcAdd() {
+var firstInput = document.getElementById("firstInput").value
+var secondInput = document.getElementById("secondInput").value
+var result = parseInt(firstInput, 10) + parseInt(secondInput, 10)
+
+document.getElementById("result").textContent = result;
+}
+
+function calcLess() {
+var firstInput = document.getElementById("firstInput").value
+var secondInput = document.getElementById("secondInput").value
+var result = parseInt(firstInput, 10) - parseInt(secondInput, 10)
+
+document.getElementById("result").textContent = result;
+}
+
+function calcX() {
+var firstInput = document.getElementById("firstInput").value
+var secondInput = document.getElementById("secondInput").value
+var result = parseInt(firstInput, 10) * parseInt(secondInput, 10)
+
+document.getElementById("result").textContent = result;
+}
+
+function calcDiv() {
+var firstInput = document.getElementById("firstInput").value
+var secondInput = document.getElementById("secondInput").value
+var result = parseInt(firstInput, 10) / parseInt(secondInput, 10)
+
+document.getElementById("result").textContent = result;
+}
+</script>

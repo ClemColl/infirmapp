@@ -1,0 +1,16 @@
+<% @first = {link: '/patients', show: true} %>
+<% @second = "#{@patient.nom.upcase} #{@patient.prenom}" %>
+<% @third = {link: edit_patient_path(@patient), title: '<i class="material-icons md-24">edit</i>', show: true} %>
+
+<p>
+  <%= @patient.adresse %>
+<br>
+  <%= @patient.tel %>
+<br>
+	<%= cl_image_tag(@patient.ordonnance.path) unless @patient.ordonnance.nil? %>
+<br>
+	<%= @patient_visites %>
+</p>
+<%= link_to 'Nouvelle visite', new_patient_visite_path(@patient.id) %>
+<%= link_to 'Voir le suivi', patient_visites_path(@patient.id) %>
+<%= link_to 'Comparer', patient_comparer_path(@patient.id) %>

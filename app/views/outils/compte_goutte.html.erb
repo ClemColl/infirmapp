@@ -1,0 +1,25 @@
+<% @first = {link: outils_path, show: true} %>
+<% @second = "Compte Goutte" %>
+<% @third = {show: false} %>
+
+
+
+<label>Volume (mL)</label>
+<input id="volume" value="">
+
+<label>Temps (mins)</label>
+<input id="time" value="">
+
+<button onclick="calcGoutte()">Calculer</button>
+
+<h3 id="result">Ok</h3>
+<script>
+function calcGoutte() {
+	var x = document.getElementById("volume").value;
+	var y = document.getElementById("time").value;
+	var mathFunc = parseInt(x, 10) * 20 / parseInt(y, 10);
+	
+	document.getElementById("result").textContent = mathFunc;
+}
+
+</script>
