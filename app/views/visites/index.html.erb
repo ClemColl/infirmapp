@@ -4,7 +4,7 @@
 
     <% @visites.where(:patient_id => params[:patient_id]).each do |visite| %>
     
-    <div style="margin:auto;width:30%;border-bottom:solid 1px;">
+    <div style="margin:auto;width:40%;border-bottom:solid 1px;">
       <h4>Visite <%= visite.date %></h4>
       
       <p>
@@ -14,12 +14,14 @@
       </p>
 
       <p>
-        <%= visite.longeur %>
-        <%= visite.largeur %>
-        <%= visite.profondeur %>
-        <%#= visite.echelle %>
+        Longueur = <%= visite.longeur %><br>
+        Largeur = <%= visite.largeur %><br>
+        Profondeur = <%= visite.profondeur %><br>
+        Douleur = <%= visite.echelle %>
           <% visite.images.each do |photo| %>
-            <div style=""><%= cl_image_tag photo.path %></div>
+            <%= link_to "https://res.cloudinary.com/zepri/image/upload/#{photo.path}" do %>
+            <%= cl_image_tag photo.path, style: "width:100%;" %>
+            <% end %>
           <% end %>
       </p>
     </div>
