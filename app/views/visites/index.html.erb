@@ -4,26 +4,28 @@
 
     <% @visites.where(:patient_id => params[:patient_id]).each do |visite| %>
     
-    <div style="margin:auto;width:40%;border-bottom:solid 1px;">
-      <h4>Visite <%= visite.date %></h4>
-      
-      <p>
-        <strong>Stade: </strong>
-          <%= visite.stade %><br>
-            COMMENTAIRES
-      </p>
+      <div style="margin:auto;width:40%;border-bottom:solid 1px;">
+        <h4>Visite <%= visite.date %> <%= link_to '<i class="material-icons md-24" style="margin-left:20px;">edit</i></h4>'.html_safe, edit_patient_visite_path(params[:patient_id], visite.id) %>
 
-      <p>
-        Longueur = <%= visite.longeur %><br>
-        Largeur = <%= visite.largeur %><br>
-        Profondeur = <%= visite.profondeur %><br>
-        Douleur = <%= visite.echelle %>
-          <% visite.images.each do |photo| %>
-            <%= link_to "https://res.cloudinary.com/zepri/image/upload/#{photo.path}" do %>
-            <%= cl_image_tag photo.path, style: "width:100%;" %>
+        
+        <p>
+          <%= '<strong>Stade: </strong>'.html_safe + "#{visite.stade}" unless visite.stade == "" %><br>
+            <%= visite.commentaire %>
+        </p>
+
+        <p>
+          <%= "Longueur = #{visite.longeur}" unless visite.longeur == "" %><br>
+
+          <%= "Largeur = #{visite.largeur}"  unless visite.largeur == "" %><br>
+          <%= "Profondeur = #{visite.profondeur}" unless visite.profondeur == "" %><br>
+          <%= "Douleur = #{visite.echelle}" unless visite.echelle == "" %>
+
+            <% visite.images.each do |photo| %>
+              <%= link_to "https://res.cloudinary.com/zepri/image/upload/#{photo.path}" do %>
+                <%= cl_image_tag photo.path, style: "width:100%;" %>
+              <% end %>
             <% end %>
-          <% end %>
-      </p>
-    </div>
+        </p>
+      </div>
     
     <% end %>

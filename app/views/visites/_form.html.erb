@@ -29,7 +29,10 @@
     <%= f.label :echelle %>
     <%= f.text_field :echelle %>
   </div>
-
+  <div class="field">
+    <%= f.label :commentaire %>
+    <%= f.text_area :commentaire %>
+  </div>
   <div>
     <%= f.label :images %>
     <%= f.attachinary_file_field :images, multiple: true %>

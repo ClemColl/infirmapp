@@ -1,6 +1,5 @@
-<h1>Editing Visite</h1>
+<% @first = {link: "/patients/#{params[:patient_id]}/visites", show: true} %>
+<% @second = "Modifier visite" %>
+<% @third = {show: false} %>
 
 <%= render 'form', visite: @visite %>
-
-<%= link_to 'Show', @visite %> |
-<%= link_to 'Back', visites_path %>

@@ -5,6 +5,7 @@ class VisitesController < ApplicationController
   # GET /visites.json
   def index
     @visites = Visite.all
+    @patient = Patient.find(params[:patient_id])
   end
 
   # GET /visites/1
@@ -24,6 +25,7 @@ class VisitesController < ApplicationController
 
   # GET /visites/1/edit
   def edit
+    @patient = Patient.find(params[:patient_id])  
   end
 
   # POST /visites
@@ -43,13 +45,13 @@ class VisitesController < ApplicationController
   # PATCH/PUT /visites/1
   # PATCH/PUT /visites/1.json
   def update
-    respond_to do |format|
+      @patient = Patient.find(params[:patient_id])
+
       if @visite.update(visite_params)
-        format.html { redirect_to @patient, notice: 'Visite was successfully updated.' }
+        redirect_to "/patients/#{@patient.id}/visites", notice: 'Visite was successfully updated.'
       else
-        format.html { render :edit }
+        render :edit
       end
-    end
   end
 
   # DELETE /visites/1
