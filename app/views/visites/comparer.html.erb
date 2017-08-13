@@ -5,13 +5,13 @@
 <% @patient.visites.first.images.each do |photo| %>
 	<p>Première image</p>
 	<%= link_to "https://res.cloudinary.com/zepri/image/upload/#{photo.path}" do %>
-		<%= cl_image_tag photo.path%>
+		<%= cl_image_tag photo.path, style: "width:60%;" %>
 	<% end %>
 <% end %>
 <br>
 <% @patient.visites.last.images.each do |photo| %>
 	<p>Dernière image</p>
 	<%= link_to "https://res.cloudinary.com/zepri/image/upload/#{photo.path}" do %>
-		<%= cl_image_tag photo.path %>
+		<%= cl_image_tag photo.path, style: "width:60%;" %>
 	<% end %>
 <% end %>
