@@ -2,7 +2,7 @@
 <% @second = "Visites" %>
 <% @third = {show: false} %>
 
-    <% @visites.where(:patient_id => params[:patient_id]).each do |visite| %>
+    <% @visites.where(:patient_id => params[:patient_id]).order(:created_at).each do |visite| %>
     
       <div style="margin:auto;width:40%;border-bottom:solid 1px;">
         <h4>Visite <%= visite.date %> <%= link_to '<i class="material-icons md-24" style="margin-left:20px;">edit</i></h4>'.html_safe, edit_patient_visite_path(params[:patient_id], visite.id) %>
