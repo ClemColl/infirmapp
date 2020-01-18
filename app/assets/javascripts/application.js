@@ -17,8 +17,8 @@
 //= require jquery.fileupload
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
+//= require owl.carousel
 //= require turbolinks
-//= require material
 //= require_tree .
 
 

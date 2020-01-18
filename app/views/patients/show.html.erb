@@ -1,16 +1,15 @@
-<% @first = {link: '/patients', show: true} %>
-<% @second = "#{@patient.nom.upcase} #{@patient.prenom}" %>
-<% @third = {link: edit_patient_path(@patient), title: '<i class="material-icons md-24">edit</i>', show: true} %>
+<% @back = '/patients' %>
+<% @title = "#{@patient.nom.upcase} #{@patient.prenom}" %>
+<% @action = {link: edit_patient_path(@patient), icon: icon_edit} %>
 
-<p>
-  <%= @patient.adresse %>
-<br>
-  <%= @patient.tel %>
-<br>
-	<%= cl_image_tag(@patient.ordonnance.path, style: 'width:50%;margin:auto;') unless @patient.ordonnance.nil? %>
-<br>
-	<%= @patient_visites %>
-</p>
-<%= link_to 'Nouvelle visite', new_patient_visite_path(@patient.id) %>
-<%= link_to 'Voir le suivi', patient_visites_path(@patient.id) %>
-<%= link_to 'Comparer', patient_comparer_path(@patient.id) %>
+<div class="flex text-center">
+  <%= link_to @patient.tel, "tel:#{@patient.tel}",class:'flex-1' %>
+</div>
+<div class='text-center'>
+  <%= cl_image_tag(@patient.ordonnance.path) unless @patient.ordonnance.nil? %>
+</div>
+  <div class="flex flex-wrap w-full px-3 mb-6 md:mb-0 text-center">
+    <%= link_to 'Comparer', patient_comparer_path(@patient.id), class: 'flex-auto font-bold py-2 px-4 m-2 border rounded', style: ' color: #F98127;;border-color: #F98127;' %>
+    <%= link_to 'Suivi', patient_visites_path(@patient.id), class: 'flex-auto font-bold py-2 px-4 m-2 border rounded', style: ' color: #F98127;;border-color: #F98127;' %>
+    <%= link_to 'Nouvelle visite', new_patient_visite_path(@patient.id), class: 'flex-1 text-white font-bold py-2 px-4 m-2 rounded', style: ' background-color: #F98127;' %>
+  </div>

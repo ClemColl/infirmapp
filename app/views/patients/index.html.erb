@@ -1,15 +1,9 @@
-<% @first = {show: false} %>
-<% @second = 'Mes Patients' %>
-<% @third = {link: '/patients/new', title: '<i class="material-icons md-36">add</i>', show: true} %>
+<% @title = 'Mes Patients' %>
+<% @action = {link: '/patients/new', icon: icon_add} %>
 
+<div class='flex flex-wrap'>
+  <% @patients.order(:nom).each do |patient| %>
+    <%= render 'patients/patient_card', patient: patient %>
+  <% end %>
+</div>
 
-    <% @patients.order(:nom).each do |patient| %>
-
-      <div style="border:solid 1px;margin-left:10%;margin-right:10%;padding-top:5px;padding-bottom:5px;">
-
-        <%= link_to patient, style: "text-decoration:none;" do %>
-        	<%= patient.nom %>
-        	<%= patient.prenom %>
-        <% end %>
-      </div>
-    <% end %>

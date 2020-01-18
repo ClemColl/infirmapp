@@ -1,31 +1,50 @@
-<% @first = {link: "/patients/#{params[:patient_id]}", show: true} %>
-<% @second = "Visites" %>
-<% @third = {show: false} %>
+<% @back = "/patients/#{params[:patient_id]}" %>
+<% @title = "Visites" %>
 
-    <% @visites.where(:patient_id => params[:patient_id]).order(:created_at).each do |visite| %>
-    
-      <div style="margin:auto;width:40%;border-bottom:solid 1px;">
-        <h4>Visite <%= visite.date %> <%= link_to '<i class="material-icons md-24" style="margin-left:20px;">edit</i></h4>'.html_safe, edit_patient_visite_path(params[:patient_id], visite.id) %>
-
-        
-        <p>
-          <%= '<strong>Stade: </strong>'.html_safe + "#{visite.stade}" unless visite.stade == "" %><br>
-            <%= visite.commentaire %>
-        </p>
-
-        <p>
-          <%= "Longueur = #{visite.longeur}" unless visite.longeur == "" %><br>
-
-          <%= "Largeur = #{visite.largeur}"  unless visite.largeur == "" %><br>
-          <%= "Profondeur = #{visite.profondeur}" unless visite.profondeur == "" %><br>
-          <%= "Douleur = #{visite.echelle}" unless visite.echelle == "" %>
-
-            <% visite.images.each do |photo| %>
-              <%= link_to "https://res.cloudinary.com/zepri/image/upload/#{photo.path}" do %>
-                <%= cl_image_tag photo.path, style: "width:100%;" %>
-              <% end %>
+<% @visites.where(:patient_id => params[:patient_id]).order(:created_at).each do |visite| %>
+<div class="flex flex-col">    
+  <div class="max-w-sm rounded overflow-hidden shadow-lg" style="margin-bottom:30px;">
+    <% if visite.images.count > 1 %>
+        <div class="owl-carousel">
+          <% visite.images.each do |photo| %>
+            <div lass="item" data-merge="3">
+            <%= link_to "https://res.cloudinary.com/zepri/image/upload/#{photo.path}", class: 'w-full' do %>
+              <%= cl_image_tag photo.path, style: "width:100%;" %>
             <% end %>
-        </p>
-      </div>
-    
+            </div>
+          <% end %>
+        </div>  
     <% end %>
+
+    <% if visite.images.count == 1 %>
+      <img class="w-full" src="https://res.cloudinary.com/zepri/image/upload/<%= "#{visite.images.first.path}" %>">
+    <% end %>
+      
+      <div class="px-6 py-4">
+        <div class="flex justify-between">
+          <div class="font-bold text-xl mb-2"><%= visite.date %></div>
+          <span class="text-center px-3 py-1 text-sm font-semibold text-gray-700">EVA <%= visite.echelle %>/10</span>
+          <%= link_to icon_edit, edit_patient_visite_path(params[:patient_id], visite.id), class: 'inline-block' %>
+        </div>
+        <p class="text-gray-700 text-base"><strong>Stade: </strong><%= visite.stade %><br><%= visite.commentaire %></p>
+      </div>
+      <div class="px-6 py-4">
+        <div class="flex flex-wrap">
+          <span class="inline-block flex-1 text-center bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"><%= visite.longeur %> cm</span>
+          <span class="inline-block flex-1 text-center bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"><%= visite.largeur %> cm</span>
+          <span class="inline-block flex-1 text-center bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"><%= visite.profondeur %> cm</span>
+        </div>
+        <div class="flex">
+        </div>
+      </div>
+    </div>      
+  <% end %>
+</div>
+
+<script>
+$(".owl-carousel").owlCarousel({
+  items: 3,
+  loop:true,
+  merge:true
+});
+</script>

@@ -31,8 +31,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'material_design_lite-rails'
 gem 'material_icons'
+
+gem 'owlcarousel-rails'
 
 gem 'cloudinary'
 gem 'attachinary', github: 'assembler/attachinary'

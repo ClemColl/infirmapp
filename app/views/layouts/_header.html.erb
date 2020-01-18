@@ -1,0 +1,11 @@
+<header>
+  <div style='width:36px;'>
+    <%= link_to icon_back, @back unless @back.nil? %>
+  </div>
+
+  <h1 class='font-bold'><%= "#{@title}" %></h1>
+
+  <div style='width:36px;'>
+    <%= link_to @action[:icon], @action[:link] unless @action.nil? %>
+  </div>
+</header>

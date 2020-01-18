@@ -1,19 +1,19 @@
-<% @first = {link: "/patients/#{params[:patient_id]}", show: true} %>
-<% @second = "Comparaison" %>
-<% @third = {show: false} %>
+<% @back = "/patients/#{params[:patient_id]}" %>
+<% @title = "Comparaison" %>
 
 
-<p>Première(s) image(s)</p>
+<p class="text-center">J+1</p>
+<div class="text-center"><em><%= @patient.visites.first.date %></em></div>
 <% @patient.visites.first.images.each do |photo| %>
 	<%= link_to "https://res.cloudinary.com/zepri/image/upload/#{photo.path}" do %>
-		<%= cl_image_tag photo.path, style: "width:60%;" %>
+		<%= cl_image_tag photo.path, style: "margin:auto;width:60%;" %>
 	<% end %>
 <% end %>
 <br>
-
-<p>Dernière(s) image(s)</p>
+<p class="text-center">Dernière visite</p>
+<div class="text-center"><em><%= @patient.visites.last.date %></em></div>
 <% @patient.visites.last.images.each do |photo| %>
 	<%= link_to "https://res.cloudinary.com/zepri/image/upload/#{photo.path}" do %>
-		<%= cl_image_tag photo.path, style: "width:60%;" %>
+		<%= cl_image_tag photo.path, style: "margin:auto;width:60%;" %>
 	<% end %>
 <% end %>

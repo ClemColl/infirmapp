@@ -25,7 +25,8 @@ mount Attachinary::Engine => "/attachinary"
 
   get '/outils/coma'
 
-  root :to => 'notes#index'
+  root :to => 'patients#index'
+  # EFFICACE CONFORTABLE ESTHETIQUE
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

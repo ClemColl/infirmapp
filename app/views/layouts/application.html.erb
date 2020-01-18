@@ -3,60 +3,22 @@
   <head>
     <title>InfirmApp</title>
     <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=300, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= cloudinary_js_config %>
 
   </head>
 
-  <header class="mdl-grid">
-    <% if @first[:show] == true %>
-      <%= "<a href='#{@first[:link]}' style='text-align:center;width:20%;'><i class='material-icons md-36'>keyboard_arrow_left</i></a>".html_safe %>
-    <% end %>
+  <body class='bg-gray-300'>
 
-    <h4 style='text-align:center;width:60%;
-    <% if @first[:show] == false && @third[:show] == true %>
-      margin-left:auto;
-    <% elsif @first[:show] == false && @third[:show] == false %>
-      margin-left:auto;margin-right:auto;
-    <% elsif @first[:show] == true && @third[:show] == false %>
-      margin-right:auto;
-    <% end %>
-      
-      '><%= "#{@second}" %></h4>
-
-    <% if @third[:show] == true %>
-      <%= "<a href='#{@third[:link]}' style='text-align:center;width:20%;'>#{@third[:title]}</a>".html_safe %>
-    <% end %>
-  </header>
-
-  <body>
-
-	  <div style="text-align:center;padding-bottom:80px;">
-    	<%= yield %>
-    </div>
+    <%= render 'layouts/header'%>
+      <main>
+    	  <%= yield %>
+      </main>
+    <%= render 'layouts/navbar'%>
 
   </body>
-
-  <div class="mdl-grid" style="position:fixed;bottom:0;width:100%;padding-bottom:10px;background-color:white;border-top:solid 1px;">
-
-	  <div style="text-align:center;width:25%;">
-      <%= link_to 'Notes', notes_path, style: 'text-decoration:none;' %>
-    </div>
-
-	  <div style="text-align:center;width:25%;">
-      <%= link_to 'Patients', patients_path, style: 'text-decoration:none;' %>
-    </div>
-
-	  <div style="text-align:center;width:25%;">
-      <%= link_to 'Tournée', notes_path, style: 'text-decoration:none;' %>
-    </div>
-
-	  <div style="text-align:center;width:25%;">
-      <%= link_to 'Outils', '/outils', style: 'text-decoration:none;' %>
-    </div>
-
-  </div>
 
 </html>
