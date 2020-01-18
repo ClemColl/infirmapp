@@ -35,6 +35,8 @@ gem 'material_icons'
 
 gem 'owlcarousel-rails'
 
+gem 'lockup'
+
 gem 'cloudinary'
 gem 'attachinary', github: 'assembler/attachinary'
 

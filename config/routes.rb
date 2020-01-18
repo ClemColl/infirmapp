@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+mount Lockup::Engine, at: '/lockup'
 mount Attachinary::Engine => "/attachinary"
 
   resources :patients do
