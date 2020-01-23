@@ -72,6 +72,6 @@ class VisitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visite_params
-      params.require(:visite).permit(:date, :stade, :longeur, :largeur, :profondeur, :echelle, :patient_id, :commentaire, images: [])
+      params.require(:visite).permit(:date, :stade, :longeur, :largeur, :profondeur, :echelle, :patient_id, :temperature, :tension, :pulsation, :commentaire, images: [])
     end
 end

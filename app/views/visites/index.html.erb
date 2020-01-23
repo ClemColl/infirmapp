@@ -28,13 +28,18 @@
         </div>
         <p class="text-gray-700 text-base"><strong>Stade: </strong><%= visite.stade %><br><%= visite.commentaire %></p>
       </div>
-      <div class="px-6 py-4">
+      <div class="px-6 py-2">
         <div class="flex flex-wrap">
           <span class="inline-block flex-1 text-center bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"><%= visite.longeur %> cm</span>
           <span class="inline-block flex-1 text-center bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"><%= visite.largeur %> cm</span>
           <span class="inline-block flex-1 text-center bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"><%= visite.profondeur %> cm</span>
         </div>
-        <div class="flex">
+      </div>
+      <div class="px-6 py-2">
+        <div class="flex flex-wrap">
+          <span class="inline-block flex-1 text-center bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"><%= visite.temperature %> °C</span>
+          <span class="inline-block flex-1 text-center bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"><%= visite.tension %></span>
+          <span class="inline-block flex-1 text-center bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"><%= visite.pulsation %></span>
         </div>
       </div>
     </div>      
